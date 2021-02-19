@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSchool ! Users </title>
+
+    <link rel="stylesheet" href="{% static 'users/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'users/css/bootstrap.min.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  
+     <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    
+
+</head>
+<body>
+<div class="container-fluid">
+   <nav class="navbar navbar-dark fixed-top p-0 shadow" style='background-color:#225470;'>
+  
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">iSchool <small class="text-white">E-Learning </small></a>
+    
+  <a href="{% url 'mycourse' %}" class="btn btn-danger"> My Course </a>
+  
+</nav>
+
+
+
+
+<div class="mb-5" style='margin-top:40px;'>
+    <div class="row">
+         <div class="col-sm-4 bg-light sidebar py-5 d-print-none shadow-lg border-right ">
+        <div class="sidebar-sticky">
+        <h4 class="text-center">Lessons</h4>
+            <ul class="nav flex-column ml-5 " id='playlist'>
+            
+            {% for ls in less %}
+
+            <li class="nav-item py-2 nav-video" movieurl='/media/{{ls.video_link}}' style='cursor:pointer;'>
+                <i class="fas fa-video"></i> {{ls.name}} </a>
+            </li>
+           
+            {% endfor %}
+            
+            </ul>
+        
+        </div>
+        
+        
+        </div>
+   
+   
+    <div class="col-sm-8  mt-5 " >
+    {% comment %} {% block leftsidebar %}
+    
+    {% endblock leftsidebar %} {% endcomment %}
+    <video src="" id='videoarea' class='mt-5 w-75 ml-2 jumbotron shadow-lg rounded bg-white' controls controlsList='nodownload'></video>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+    
+    <script src="{% static 'users/js/jq.js' %}"></script>
+    <script src="{% static 'users/js/popper.js' %}"></script>
+    <script src="{% static 'users/js/all.min.js' %}"></script>
+    <script src="{% static 'users/js/bootstrap.js' %}"></script>
+    <script src="{% static 'users/js/custom.js' %}"></script>
+</body>
+</html>

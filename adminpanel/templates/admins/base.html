@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSchool ! Admin </title>
+
+    <link rel="stylesheet" href="{% static 'admins/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'admins/css/bootstrap.min.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  
+     <link rel="stylesheet" href="{% static 'admins/css/style.css' %}">
+    
+
+</head>
+<body>
+<div class="container-fluid">
+   <nav class="navbar navbar-dark fixed-top p-0 shadow" style='background-color:#225470;'>
+  
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url 'deshboard' %}">E-Pathshala <small class="text-white">Admin Area</small></a>
+  
+</nav>
+<div class="mb-5" style='margin-top:40px;'>
+    <div class="row">
+        {% include 'admins/sidebar.html' %}
+   
+    <div class="col-sm-9 col-md-10 mt-5">
+    {% block leftsidebar %}
+
+    {% endblock leftsidebar %}
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+    
+    <script src="{% static 'admins/js/jq.js' %}"></script>
+    <script src="{% static 'admins/js/popper.js' %}"></script>
+    <script src="{% static 'admins/js/all.min.js' %}"></script>
+    <script src="{% static 'admins/js/bootstrap.js' %}"></script>
+</body>
+</html>

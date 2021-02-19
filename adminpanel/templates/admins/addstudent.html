@@ -1,0 +1,47 @@
+{% extends 'admins/base.html' %}
+{% load static %}
+{% block leftsidebar %}
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8 bg-white shadow-lg">
+           
+        
+
+
+            <h4 class="text-center mt-5">Add New Student</h4>
+        <form action="" method="post" novalidate class='m-5'>
+        
+        {% csrf_token %}
+        {% for fm in form %}
+        <div class="form-group">
+            {{fm.label_tag}} {{fm}} <small class="text-warning">{{fm.errors|striptags}}</small>
+        </div>
+           
+        {% endfor %}
+        
+    
+     
+     <a href="{% url 'students' %}" class="btn btn-danger mt-3 ">Closed</a>
+      
+        <input type="submit" value="Submit" class="btn btn-success ml-5 mt-3">
+       
+            
+        {% if form.non_filed_errors %}
+            {% for error in form.non_filed_errors %}
+                <p class="alert alert-success my-3" >{{error}}</p>
+            {% endfor %}
+        {% endif %}
+      
+      </form>
+       {% if messages %}
+            {% for message in messages  %}
+                <p {% if message.tags %} class="alert mt-2 alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+
+{% endblock leftsidebar %}

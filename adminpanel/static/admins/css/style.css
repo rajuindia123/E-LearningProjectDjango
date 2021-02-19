@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(241, 243, 244);
+}
+.navbar-brand
+{font-family: 'Ubuntu', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+
+
+}
+.box{
+    
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    margin-bottom: 30px;
+}
+a.nav-link{
+    transition: all 0.3s ease-in-out;
+}
+a.nav-link:hover{
+    color: black;
+    background-color: #e9cd79;
+    padding-left: 2px;
+    transition: all 0.3s ease-in-out;
+    
+}
+a.nav-link.active{
+    color: black;
+    background-color: #ffc107;
+    font-weight: bold;
+}
+  @media screen and (min-width:0px) and (max-width: 700px){
+      
+      
+      
+  }

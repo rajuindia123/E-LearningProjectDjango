@@ -1,0 +1,43 @@
+{% extends 'users/stubase.html' %}
+{% load static %}
+{% block leftsidebar %}
+<h3 class='text-center'>All Course</h3>
+            
+{% for i in q1 %}
+<div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10  shadow-lg mybg">
+            
+        <h4 class='ml-4 mt-2'><b>Course Name: </b> {{i.course_id__name}}</h4>
+        <hr class="my-0">
+        {% comment %} <div class="float-left mt-2 img-my">
+    <img src="/media/{{i.course_id__img}}" alt="..." class="img-thumbnail">
+    
+    </div> {% endcomment %}
+<div class="jumbotron jumbotron-fluid bg-white shadow-lg ">
+  <div class="container">
+    
+    <p > <b>Course Description: </b>{{i.course_id__description}}</p>
+    <p ><b>Duration: </b> {{i.course_id__duration}}</p>
+    <p ><b>Intructor: </b> {{i.course_id__author}}</p>
+    <p class="card-text d-inline"><b>Price: </b><span class="font-weight-bolder">  &#8377 {{i.course_id__s_price}}</span>
+        </p>
+        <a href="{% url 'watchvideo' i.course_id %}" class='btn btn-primary mt-4 text-white font-weight-bolder float-right'>Watch Course</a> 
+  </div>
+</div>
+<hr class="my-0">
+           </div>
+        <div class="col-sm-1">
+        </div>
+    </div>
+
+    
+    
+    
+   
+  <br>
+  
+{% endfor %}
+  
+{% endblock leftsidebar %}

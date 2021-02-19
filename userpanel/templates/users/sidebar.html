@@ -1,0 +1,35 @@
+{% load static %}
+        <div class="col-sm-3 col-md-2 bg-light sidebar py-5 d-print-none shadow-lg border-right ">
+        <div class="sidebar-sticky">
+            <ul class="nav flex-column ">
+            
+            <li class="nav-item mb-3">
+            {% for ob in obj %}
+                <img src="/media/{{ob.stu_img}}" alt="studentimage" class="img-thumbnail rounded-circle imguser">
+                {% endfor %}
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'student_profile' %}" class="nav-link {{pro}} "><i class="fas fa-tachometer-alt" ></i> Profile </a>
+            </li>
+            <li class="nav-item">
+                <a href=" {% url 'mycourse' %}" class="nav-link {{mycor}}"><i class="fab fa-accessible-icon" ></i> MY Courses</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'feddback' %}" class="nav-link {{feed}}"><i class="fab fa-accessible-icon" ></i> Fedddback</a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{% url 'changpass' %}" class="nav-link {{chan}}"><i class="fas fa-key" ></i>  Change Pass</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'logout' %}" class="nav-link"><i class="fas fa-sign-out-alt" ></i> Logout</a>
+            </li>
+
+            </ul>
+        
+        </div>
+        
+        
+        </div>
+   

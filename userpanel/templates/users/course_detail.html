@@ -1,0 +1,70 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block navbar %}
+      {% include 'users/navbar.html' %} 
+    <div class="row imgcon">
+     
+        <img src="{% static 'users/image/book1.jpg' %}" alt="courses" style='height:500px; width:100% ; object-fit:cover; box-shadow:10px;' />
+    </div>
+{% endblock navbar %}
+
+{% block stsrtvideo %}
+        {% block contact %}
+        <div class="container mt-4">
+        <div class="row mb-2">
+        {% for co in cor %}
+            <div class="col-md-4">
+                <img src="/media/{{co.img}}" alt="" class='card-img-top img-thumbnail rounded '>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Course Name: {{co.name}}</h5>
+                    <p class="card-text"><b>Description:</b> {{co.description}}.</p>
+                    <p class="card-text"><b> Duration:</b> {{co.duration}}</p>
+                  <form action="" method="post">
+                    {% csrf_token %}
+                        <p class="card-text d-inline"><b>Price: </b><small><del> &#8377 {{co.o_price}} </del></small><span class="font-weight-bolder">  &#8377 {{co.s_price}}</span>
+                        </p>
+                   <input type="submit" value="Buy Now" class='btn btn-primary text-white font-weight-bolder float-right'>
+                    
+                    </form>
+                </div>
+            
+            </div>
+        {% endfor %}
+        </div>
+         <div class="row mt-4 mb-2">
+            <div class="col-sm-10">
+                <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      
+      <th scope="col">Lesson No.</th>
+      <th scope="col">Lesson Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for ls in less  %}
+    
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ls.name}}</td>
+      
+    </tr>
+    
+   {% endfor %}
+  </tbody>
+</table>
+            </div>
+
+
+         </div>
+         </div>
+        {% endblock contact %}   
+    {% include 'users/footer.html' %} 
+  
+{% endblock stsrtvideo %}
+    
+

@@ -1,0 +1,60 @@
+{% extends 'admins/base.html' %}
+{% load static %}
+{% block leftsidebar %}
+<div class="row mx-5 text-center">
+    <div class="col-12 ">
+
+    <p class='bg-dark text-white p-2'>List of Courses </p>
+    
+    </div>
+    
+ </div>
+
+
+        <div class="row mx-5 text-center">
+        <div class="col-12 ">
+            <table class="table table-hover bg-white shadow-lg">
+            <thead>
+                <tr>
+                
+                <th scope="col">Student ID</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Email</th>
+                
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for st in stus %}
+                <tr>
+                <th scope="row">{{st.stu_id}}</th>
+                <td>{{st.stu_name}}</td>
+                <td>{{st.stu_email}}</td>
+                <td>
+                    
+                    <a href="{% url 'updatestu' st.stu_id %}" class="btn btn-info"><i class="fas fa-pen" ></i></a>
+                    <form action="{% url 'delstu' st.stu_id %}" method="POST" class='d-inline'>
+                    {% csrf_token %}
+                    <button type="submit" class='btn btn-danger' value='Delete'><i class="far fa-trash-alt    " ></i></button>
+                    
+                    </form>
+                
+                </td>
+                </tr>
+                {% endfor %}
+                
+                
+                
+                
+            </tbody>
+            </table>
+        
+        
+        </div>
+        <div>
+    <a href="{% url 'addstudents' %}" class="btn btn-danger box" ><i class="fas fa-plus fa-2x"></i></a>
+</div>
+    </div>
+
+
+{% endblock leftsidebar %}

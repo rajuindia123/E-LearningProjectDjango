@@ -1,0 +1,53 @@
+{% extends 'users/base.html' %}
+{% load static %}
+ {% block msg %}
+<p class='text-center mt-2'><b>Note :- </b> Please do not go back or refresh this page until you prosess your transaction.</p>
+
+ <h2 class='text-center mt-5'>Payment Status Regarding</h2>
+ 
+        {% if response.RESPCODE == '01' %}
+        
+        <form action="{% url 'chakout' %}" method="post">
+        {% csrf_token %}
+        <div class="row mt-3">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 bg-white">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your Order ID</label>
+                <input class="form-control" name='order_id' type="text" value={{response.ORDERID}}  readonly>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your RESPMSG</label>
+                <input class="form-control" name='respmsg' type="text" value={{response.RESPMSG}}  readonly>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your STATUS </label>
+                <input class="form-control" name='status' type="text" value={{response.STATUS}}  readonly>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your Course Amount</label>
+                <input class="form-control" name='amount' type="text" value={{response.TXNAMOUNT}}  readonly>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your Order Date</label>
+                <input class="form-control" name='date' type="text" value={{response.TXNDATE}}  readonly>
+            </div>
+            <input type="submit" value=" Success " class="btn btn-success mt-2">
+
+
+        
+        </div>
+            </div>
+        </form>
+        {% else %}
+        ORDER FAILURE
+        {% endif%}
+{% endblock msg %}
+
+
+
+
+
+

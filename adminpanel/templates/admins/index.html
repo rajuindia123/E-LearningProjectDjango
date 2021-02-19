@@ -1,0 +1,95 @@
+{% extends 'admins/base.html' %}
+{% load static %}
+
+
+{% block leftsidebar %}
+    <div class="row mx-5 text-center">
+        <div class="col-sm-4">
+            <div class="card text-white bg-danger mb-3" style='max-widh:18rem;'>
+                <div class="card-header">Courses</div>
+                <div class="card-body">
+                <h4 class="card-title">{{cour_count}}</h4>
+                    <a href="{% url 'admincourse' %}" class="btn text-white">View</a>
+                </div>
+            
+            </div>
+        
+        
+        </div>
+    
+    <div class="col-sm-4">
+            <div class="card text-white bg-success mb-3" style='max-widh:18rem;'>
+                <div class="card-header">Student</div>
+                <div class="card-body">
+                <h4 class="card-title">{{stu_count}}</h4>
+                    <a href="{% url 'students' %}" class="btn text-white">View</a>
+                </div>
+            
+            </div>
+        
+        
+        </div>
+    <div class="col-sm-4 ">
+            <div class="card text-white bg-info mb-3" style='max-widh:18rem;'>
+                <div class="card-header">Sold</div>
+                <div class="card-body">
+                <h4 class="card-title">{{order_count}}</h4>
+                    <a href="#" class="btn text-white">View</a>
+                </div>
+            
+            </div>
+        
+        
+        </div>
+</div>
+ <div class="row mx-5 text-center">
+    <div class="col-12 ">
+
+    <p class='bg-dark text-white p-2'>Course Ordered</p>
+    
+    </div>
+    
+ </div>
+ <div class="row mx-5 text-center">
+    <div class="col-12 ">
+        <table class="table table-hover bg-white shadow-lg">
+        <thead>
+            <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Course ID</th>
+            <th scope="col">Student Email</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if order %}
+        {% for cos in order %}
+                    <tr>
+            <th scope="row">{{cos.id}}</th>
+            <td>{{cos.course_id}}</td>
+            <td>{{cos.student_email}}</td>
+            <td>{{cos.order_date}}</td>
+            <td>{{cos.amount}}</td>
+            <td>
+                <form action="{% url 'delorder' cos.id %}" method="post"  class='d-inline'>
+                {% csrf_token %}
+                <button type="submit" class='btn btn-danger' value='Delete'><i class="far fa-trash-alt    " ></i></button>
+                   
+                </form>
+            
+            </td>
+            </tr>
+            {% endfor %}
+
+            {% endif %}
+            
+        </tbody>
+        </table>
+    
+    
+    </div>
+    
+ </div>
+{% endblock leftsidebar %}
