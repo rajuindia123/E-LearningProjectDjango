@@ -14,7 +14,7 @@ from django.template import RequestContext
 
 
 
-MERCHANT_KEY = 'white your merchant Key'
+MERCHANT_KEY = 'Enter your merchant Key'
 def home(request):
     if request.method=='POST':
         fm=Contact(request.POST)
